@@ -10,7 +10,11 @@ ifeq ($(ARCH),x86_64)
 $(error x86_64 not supported)
 endif
 
+ifeq ($(ARCH),x86)
+MARCH = ia32
+else
 MARCH = $(ARCH)
+endif
 
 ifdef CONFIG_X86_64
 	MARCH = x86_64
